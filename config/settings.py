@@ -45,13 +45,15 @@ INSTALLED_APPS = [
     'django_filters',
     'drf_yasg',
     'account',
-    'product'
+    'product',
+    'corsheaders',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -171,3 +173,8 @@ SWAGGER_SETTINGS = {
 
 CELERY_BROKEN_URL='redis://localhost:6379'
 CELERY_RESULT_BACKEND='redis://localhost:6379'
+
+
+CORS_ALLOWED_ORIGINS=['http://localhost:3000','http://127.0.0.1:3000']
+CORS_ALLOWED_METHOD=['GET','POST']
+CORS_ORIGIN_WHITELIST=['http://localhost:3000','http://localhost:3001','http://127.0.0.1:3000']
